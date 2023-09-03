@@ -426,6 +426,7 @@ span-bold {font-weight: 900;}
 
 
 /*  Summary and Details Widget
+    https://web.dev/learn/html/details/
 */  details {
       border-top: 1px solid;
       border-bottom: 1px solid;
