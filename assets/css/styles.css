@@ -424,26 +424,51 @@ p {padding: 0 1rem;}
 
 span-bold {font-weight: 900;}
 
-summary {position: relative;}
 
-summary::marker {content: none;}
-summary::before,
-summary::after {content: '';}
-summary::before,
-summary::after {
-    width: .75em;
-    height: 0;
-    border-bottom: 2px solid;
-    position: absolute;
-    top: calc(50% - 1px);
-    right: 0;
-    transform: translateY(-50%);
-  }
-summary::after {
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
-}
-[open] summary::after {transform: rotate(0deg);}
+/*  Summary and Details Widget
+*/  details {
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+    }
+    details + details {border-top: none;}
+    details[open] {padding-bottom: 1em;}
+
+    summary {
+      padding: 1rem 2em 1rem 0;
+      position: relative;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 1rem;
+    }
+
+    summary:hover {
+      background-color: rgba(
+          var(--bg-accent-color),
+          var(--bg-accent-opacity)
+        );
+    }
+
+    summary::marker {content: none;}
+    summary::before,
+    summary::after {content: '';}
+    summary::before,
+    summary::after {
+        width: .75em;
+        height: 0;
+        border-bottom: 2px solid;
+        position: absolute;
+        top: calc(50% - 1px);
+        right: 1rem;
+        transform: translateY(-50%);
+      }
+    summary::after {
+      transform: rotate(90deg);
+      transform-origin: 50% 50%;
+    }
+    [open] summary::after {transform: rotate(0deg);}
+
+/* - - - - - - - - - - - - - - - - - - - */
+
 
 input {
   display: none;
