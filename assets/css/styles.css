@@ -376,12 +376,15 @@ panel-tab app-logo2 {
 
 /*  TYPOGRAPHY
 - - - - - - - - - - - - - - - - - */
-panel-tab h1,
-panel-tab h2,
-panel-tab h3 {
+panel-tab :where(h1, h2, h3, h4) {
   font-family: cinzel, serif;
   text-align: center;
+  text-wrap: balance;
 }
+
+panel-tab :where(h1, h2, h3, h4)::before {content: "~ "}
+panel-tab :where(h1, h2, h3, h4)::after {content: " ~"}
+
 panel-tab h1 {font-size: 2rem;}
 panel-tab h2 {font-size: 1.75rem;}
 panel-tab h3 {font-size: 1.5rem;}
@@ -466,7 +469,47 @@ span-bold {font-weight: 900;}
       transform: rotate(90deg);
       transform-origin: 50% 50%;
     }
+
     [open] summary::after {transform: rotate(0deg);}
+
+/* - - - - - - - - - - - - - - - - - - - */
+
+
+
+/* Fees Table */
+fees-table ul {
+  display: grid;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+fees-table li {
+  display: grid;
+  grid-template-columns: 11rem 1fr 1fr;
+  border-bottom: solid 1px currentColor;
+}
+
+fees-table span {padding: .5rem 1rem;}
+
+@media all and (max-width: 39rem) {
+  fees-table li:first-of-type {display: none;}
+
+  fees-table li {
+    grid-template-columns: 1fr;
+    padding: 1rem 0;}
+
+  fees-table li span {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+  }
+
+  fees-table span::before {
+    content: attr(data-label);
+    color: currentColor;
+    padding-right: 1rem;
+  }
+}
 
 /* - - - - - - - - - - - - - - - - - - - */
 
