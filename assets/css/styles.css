@@ -403,6 +403,12 @@ hr::before {
 
 p {padding: 0 1rem;}
 
+p img {
+  float: left;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+
 span-bold {font-weight: 900;}
 
 
