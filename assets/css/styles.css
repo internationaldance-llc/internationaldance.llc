@@ -44,7 +44,7 @@
 
   --logo: url("/assets/images/logo.svg");
   --seal:url("/assets/images/seal.svg");
-  --corner: url("/assets/images/corner.svg");
+  --corner: url("/assets/images/corner5.svg");
   --instagram: url("/assets/images/instagram.svg");
   --facebook: url("/assets/images/facebook.svg");
   --pinterest: url("/assets/images/pinterest.svg");
@@ -266,16 +266,16 @@ footer {grid-template-columns: 1fr auto;}
 
 /* corner top left */
 header::before {
-  bottom: -6.125rem;
-  left: -0.313rem;
-  transform: rotate(-90deg);
+  bottom: -6.25rem;
+  left: 0rem;
+  transform: rotate(0deg);
 }
 
 /* corner bottom right */
 footer::after {
-  top: -6.125rem;
-  right: -0.313rem;
-  transform: rotate(90deg);
+  top: -6.25rem;
+  right: 0rem;
+  transform: rotate(180deg);
 }
 
 footer:last-child {padding-right: 0.3rem;}
