@@ -403,6 +403,8 @@ hr::before {
 
 p {padding: 0 1rem;}
 
+p:last-of-type {margin-bottom: 1rem;}
+
 p img {
   float: left;
   margin-right: .5rem;
