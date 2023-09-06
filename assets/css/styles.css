@@ -463,41 +463,51 @@ span-bold {font-weight: 900;}
 
 
 
-/* Fees Table */
+/* Tables */
+responsive-table ul,
 fees-table ul {
   display: grid;
   list-style-type: none;
   padding: 0 0 1rem 0;
 }
 
+responsive-table li,
 fees-table li {
   display: grid;
   grid-template-columns: 11rem 1fr 1fr;
   border-bottom: solid 1px currentColor;
 }
 
+responsive-table span,
 fees-table span {padding: .5rem 1rem;}
 
 @media all and (max-width: 37.5rem) {
+	responsive-table li:first-of-type {display: none;}
   fees-table li:first-of-type {display: none;}
 
+	responsive-table li,
   fees-table li {
     grid-template-columns: 1fr;
     padding: 1rem 0;}
 
+	responsive-table li,
   fees-table li span {
     display: grid;
     grid-template-columns: 10rem 1fr;
   }
 
+	responsive-table span::before {
+    content: attr(data-label);
+    color: currentColor;
+    padding-right: 1rem;
+  }
+	
   fees-table span::before {
     content: attr(data-label);
     color: currentColor;
     padding-right: 1rem;
   }
 }
-
-fees-table {display: none;}
 
 /* - - - - - - - - - - - - - - - - - - - */
 
