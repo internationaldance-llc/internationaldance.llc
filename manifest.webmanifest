@@ -1,6 +1,7 @@
 {
   "name": "International Dance",
   "short_name": "International.Dance",
+  "id": "/index.html",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0d101b",
