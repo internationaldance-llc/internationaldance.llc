@@ -75,6 +75,7 @@ body,
 app-container {
   background-color: rgba(var(--bg-body),var(--bg-body-opacity));
   color: rgba(var(--txt-body),var(--txt-body-opacity));
+  scroll-behavior: smooth;
 }
 
 body {
@@ -83,6 +84,7 @@ body {
   font-family: "calluna-regular", sans-serif;
   font-size: 1.1rem;
 }
+
 
 
 
@@ -396,6 +398,12 @@ hr::before {
   transform-origin: center;
 }
 
+/* TODO
+ol,ul {
+  columns: 72ch;
+}
+*/
+
 .cinzel {
   font-family: 'Cinzel Decorative';
   font-weight: 700;
@@ -488,6 +496,8 @@ fees-table span {padding: .5rem 1rem;}
     padding-right: 1rem;
   }
 }
+
+fees-table {display: none;}
 
 /* - - - - - - - - - - - - - - - - - - - */
 
