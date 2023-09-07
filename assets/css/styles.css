@@ -550,7 +550,7 @@ a[href^="mailto:"] {
 - - - - - - - - - - - - - - - - - */
 /* https://alvarotrigo.com/blog/how-to-create-a-youtube-video-background-with-css/ */
 
-h4 {
+/* h4 {
   background: rgba(0,0,0,0.5);
   padding: 10px;
 }
@@ -576,7 +576,7 @@ h4 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 /*
 @media (min-aspect-ratio: 16/9) {
