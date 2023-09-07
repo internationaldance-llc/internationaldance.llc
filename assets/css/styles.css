@@ -96,22 +96,6 @@ app-container {
   overflow: hidden;
 }
 
-/* @media (max-width: 50rem) {
-  app-container {
-    grid-template-rows: auto auto 1fr minmax(1rem, 7rem) minmax(1rem, 7rem);
-    grid-template-columns: unset;
-  }
-  nav > panel-list {
-        grid-auto-flow: column !important;
-  }
-  main {
-    margin: -1rem 0 0 0 !important;
-  }
-  nav header, aside header, aside-2 header {
-    display: none !important;
- }
-} */
-
 
 
 
@@ -146,10 +130,10 @@ app-container:not(:has(#radio01:checked)) main {border-radius: 0.25rem;}
 header,
 footer {
   background-color: rgba(var(--bg-header),var(--bg-header-opacity));
-  position: relative; /* twirls positioning */
+  position: relative; /* swirl positioning */
   grid-auto-flow: column;
   grid-column: 1 / -1;
-  overflow: visible; /* twirls visibility */
+  overflow: visible; /* swirl visibility */
   color: #ebeced;
 }
 
