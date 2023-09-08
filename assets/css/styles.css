@@ -191,6 +191,9 @@ header app-logo {
     grid-template-columns: 1fr; */
     padding-bottom: .5rem;
   }
+
+  header button, 
+  header label {padding: 0.5rem 0.3rem;}
 }
 
 
@@ -453,7 +456,7 @@ fees-table li {
 responsive-table span,
 fees-table span {padding: .5rem 1rem;}
 
-@media all and (max-width: 37.5rem) {
+@media screen and (max-width: 37.5rem) {
 	responsive-table li:first-of-type {display: none;}
   fees-table li:first-of-type {display: none;}
 
