@@ -488,6 +488,25 @@ responsive-table ul li {
 
 responsive-table ul li table-cell {padding: .5rem 1rem;}
 
+@media screen and (max-width: 37.5rem) {
+  responsive-table li:first-of-type {display: none;}
+
+  responsive-table li {
+    grid-template-columns: 1fr;
+    padding: 1rem 0;}
+
+    responsive-table li table-cell {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+  }
+
+    responsive-table table-cell::before {
+    content: attr(data-label);
+    color: currentColor;
+    padding-right: 1rem;
+  }
+}
+
 
 
 /* - - - - - - - - - - - - - - - - - - - */
