@@ -191,11 +191,12 @@ header app-logo {
     grid-template-columns: 1fr; */
     padding-bottom: .5rem;
   }
+}
 
+@media (max-width: 25rem) {
   header button, 
   header label {padding: 0.5rem 0.3rem;}
 }
-
 
 
 
