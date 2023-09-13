@@ -30,14 +30,14 @@
   --txt-active-opacity: 1;
   --txt-link: 65,105,225; /* royalblue */
 
-  --logo: url("/assets/images/logo.svg");
-  --seal:url("/assets/images/seal.svg");
-  --corner: url("/assets/images/corner5.svg");
-  --instagram: url("/assets/images/instagram.svg");
-  --facebook: url("/assets/images/facebook.svg");
-  --pinterest: url("/assets/images/pinterest.svg");
-  --twitter: url("/assets/images/twitterx.svg");
-  --youtube: url("/assets/images/youtube.svg");
+  --logo: url("/assets/images/logos/logo.svg");
+  --seal:url("/assets/images/logos/seal.svg");
+  --corner: url("/assets/images/ui/corner5.svg");
+  --instagram: url("/assets/images/social/instagram.svg");
+  --facebook: url("/assets/images/social/facebook.svg");
+  --pinterest: url("/assets/images/social/pinterest.svg");
+  --twitter: url("/assets/images/social/twitterx.svg");
+  --youtube: url("/assets/images/social/youtube.svg");
 }
 
 
