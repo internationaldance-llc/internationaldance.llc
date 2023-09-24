@@ -2,23 +2,23 @@
 <html lang="en" class="no-js">
 
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>Page Title - My Site</title> <!-- TODO: update page title -->
     <script type="module">
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
-    <meta name="description" content="Page Description"> <!-- TODO: update meta description -->
-    <meta property="og:title" content="Home - Page"> <!-- TODO: update og:title -->
-    <meta property="og:url" content="https://www.example.com/page"> <!-- TODO: update og:url -->
+    <meta name="description" content="Page Description" /> <!-- TODO: update meta description -->
+    <meta property="og:title" content="Home - Page" /> <!-- TODO: update og:title -->
+    <meta property="og:url" content="https://internationaldance.llc/index.html" /> <!-- TODO: update og:url -->
     <meta property="og:description" content="OG Page Description"> <!-- TODO: update og:description -->
     <meta property="og:image" content="/path/to/image"> <!-- TODO: og:image -->
     <meta property="og:image:alt" content="OG Image Description"> <!-- TODO: update og:image:alt -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="large-image-twitter.jpg"> <!-- TODO: update twitter:cared -->
-    <link rel="canonical" href="https://www.example.com/page"> <!-- TODO: update canonical link -->
+    <link rel="canonical" href="https://internationaldance.llc/index.html"> <!-- TODO: update canonical link -->
     <link rel="icon" href="/favicon.ico"> <!-- TODO: update favicon.ico -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"> <!-- TODO: update favicon.svg -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"> <!-- TODO: update apple-touch-icon.png -->
@@ -243,22 +243,23 @@
     </main>
 
     <footer class="colophon grid">
-      <aside>Content, layout, design: <a href="https://twitter.com/mor10" target="_blank" rel="nofollow">Morten
+      <aside>Content, layout, design: <a href="https://twitter.com/mor10" target="_blank" rel="noopener noreferrer nofollow">Morten
           Rand-Hendriksen</a>.</aside>
-      <aside>All photos: <a href="https://unsplash.com/@andozo" target="_blank" rel="nofollow">Andreas Rønningen</a>.
+      <aside>All photos: <a href="https://unsplash.com/@andozo" target="_blank" rel="noopener noreferrer nofollow">Andreas Rønningen</a>.
       </aside>
     </footer>
-    <script src="/assets/js/app.js"></script> <!-- TODO: Update app entry point -->
-    <script src="/assets/js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
-    <script src="/assets/js/xy-polyfill.js" nomodule></script>
+
     <script src="/assets/js/scripts.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ7HZLG9TL"></script>
     <script>
-      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-      ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HZ7HZLG9TL');
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
 
 </html>
