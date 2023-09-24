@@ -1,770 +1,323 @@
-/*  RESET
-- - - - - - - - - - - - - - - - - */
-*:before,
-*:after,
-*,
-::after,
-::before {box-sizing: border-box;}
+/* https://codepen.io/mor10/pen/xdYoNO?editors=1100
+ * NOTE:
+ * Grid/Flex layout stuff starts at line 187.
+ * The stuff before is just boring old CSS to make content look not crappy.
+ */
 
 
-
-
-/*  THEME | DARK
-- - - - - - - - - - - - - - - - - */
+/*  CSS Reset
+ *  Based on Eric Meyer's CSS reset v2.0
+ *  http://meyerweb.com/eric/tools/css/reset/
+ *  and HTML5 Doctor CSS Reset
+ *  http://html5doctor.com/html-5-reset-stylesheet/
+----------------------------------------------------*/
 :root {
-  --bg-header: 76,88,111;
-  --bg-header-opacity: 1.0;
-  --bg-body: 235,237,236;
-  --bg-body-opacity: 1.0;
-  --bg-active-color: 255, 255, 255;
-  --bg-active-opacity: 0.05;
-  --bg-accent-color: 48, 190, 255;
-  --bg-accent-opacity: 0.5;
-
-  --txt-header: var(--bg-body);
-  --txt-header-opacity: 1.0;
-  --txt-body: var(--bg-header);
-  --txt-body-opacity: 1.0;
-
-  --txt-active: 255, 255, 255;
-  --txt-active-opacity: 1;
-  --txt-link: 65,105,225; /* royalblue */
-
-  --logo: url("/assets/images/logos/logo.svg");
-  --seal:url("/assets/images/logos/seal.svg");
-  --corner: url("/assets/images/ui/corner5.svg");
-  --instagram: url("/assets/images/social/instagram.svg");
-  --facebook: url("/assets/images/social/facebook.svg");
-  --pinterest: url("/assets/images/social/pinterest.svg");
-  --twitter: url("/assets/images/social/twitterx.svg");
-  --youtube: url("/assets/images/social/youtube.svg");
+	--corner-fill: rgba(255, 255, 255, 0.7);
+	--logo-fill: rgba(255, 255, 255, 1.0);
+	--menu-fill: #999;
 }
 
-
-
-
-/*  THEME | Light
-- - - - - - - - - - - - - - - - - */
-@media (prefers-color-scheme: dark) {
-  :root:has(#toggleTheme:checked) {
-    --bg-02-color: 0, 0, 0;
-    --bg-02-opacity: 0.5;
-    --bg-active-color: 255, 255, 255;
-    --bg-active-opacity: 0.2;
-    --txt-color: 0, 0, 0;
-    --txt-active: 0, 0, 0;
-    --txt-active-opacity: 1;
-    --txt-link: 65,105,225; /* royalblue */
-  }
-}
-
-html,
-body,
-app-container {
-  background-color: rgba(var(--bg-body),var(--bg-body-opacity));
-  color: rgba(var(--txt-body),var(--txt-body-opacity));
-  scroll-behavior: smooth;
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  font-size: 1.1rem;
+	margin: 0;
 }
 
-
-
-
-
-/*  WRAPPER
-- - - - - - - - - - - - - - - - - */
-app-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  /* gap: 1rem; */
-  /* padding: 1rem; */
-  height: 100dvh;
-  /*
-	doc:
-	Push HEADER/FOOTER to the top/bottom of viewport
-	Use DVH: https://twitter.com/stackblitz/status/1682403409792495617
-		 https://dvh.stackblitz.io/
-		 https://stackblitz.com/edit/dvh?file=style.css
-	*/
-  overflow: hidden;
-}
-
-
-
-
-/*  ALL PANELS
-- - - - - - - - - - - - - - - - - */
-app-container > * {
-  display: grid;
-  overflow: hidden;
-  align-content: start;
-  width: 100dvw;
-}
-
-
-
-
-/*  HEADER NAVBAR
-- - - - - - - - - - - - - - - - - */
-app-container:has(#radio01:checked) main #tab01,
-app-container:has(#radio02:checked) main #tab02,
-app-container:has(#radio03:checked) main #tab03,
-app-container:has(#radio04:checked) main #tab04,
-app-container:has(#radio05:checked) main #tab05,
-app-container:has(#radio06:checked) main #tab06 {display: grid;}
-
-app-container:not(:has(#radio01:checked)) main {border-radius: 0.25rem;}
-
-
-
-
-/*  HEADER/FOOTER
-- - - - - - - - - - - - - - - - - */
-header,
-footer {
-  background-color: rgba(var(--bg-header),var(--bg-header-opacity));
-  position: relative; /* swirl positioning */
-  grid-auto-flow: column;
-  grid-column: 1 / -1;
-  overflow: visible; /* swirl visibility */
-  color: #ebeced;
-}
-
-header {
-  grid-template-columns: 1fr auto auto;
-  grid-template-rows: auto;
-  grid-auto-flow: row;
-  grid-template-areas: "app-logo menu button";
-  z-index: +1;
-  -webkit-box-shadow: 0 0.125rem 0 0 rgba(0,0,0,0.75);
-  -moz-box-shadow: 0 0.125rem 0.125rem 0 rgba(0,0,0,0.75);
-  box-shadow: 0 0.125rem 0.125rem 0 rgba(0,0,0,0.75);
-}
-
-header app-logo { grid-area: app-logo; }
-header menu { grid-area: menu; }
-header button { grid-area: button; }
-
-header menu,
-footer menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(5, min-content);
-  grid-auto-flow: column dense;
-  justify-content: end;
-}
-
-header menu li,
-footer menu li {
-  display: grid;
-  align-items: center;
-}
-
-header app-logo {
-  width: 13rem;
-  height: 2.7rem;
-  margin: .5rem 1rem;
-  background-color: currentColor;
-  -webkit-mask-image: var(--logo);
-  mask-image: var(--logo);
-  background-repeat: no-repeat;
-}
-
-@media (max-width: 43.75rem) {
-  header {
-  grid-template-columns: 1fr 1fr auto;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "app-logo app-logo button"
-    "menu menu menu";
-
-    /* grid-template-rows: auto auto;
-    grid-template-columns: 1fr; */
-    padding-bottom: .5rem;
-  }
-}
-
-@media (max-width: 25rem) {
-  header button, 
-  header label {padding: 0.5rem 0.3rem;}
-}
-
-
-
-/*  BUTTONS/LABELS
-- - - - - - - - - - - - - - - - - */
-button,
-label {
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.7rem;
-  font-size: 0.7rem;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-button:hover,
-label:hover,
-label:has(> input:checked) {
-  background-color: rgba(var(--bg-active-color), var(--bg-active-opacity));
-  color: rgba(var(--txt-active), var(--txt-active-opacity));
-}
-
-app-logo,
-powered-by {padding: 0.5rem;}
-
-/*
-TODO
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 164 164"><filter id="shadow"><feDropShadow dx="0.2" dy="0.4" stdDeviation="0.2" /></filter><g filter="url(#shadow)"><path
-*/
-
-header::before,
-footer::after {
-  content: "";
-  position: absolute;
-  width: 6.25rem;
-  height: 6.25rem;
-  background-color: rgba(var(--bg-header),var(--bg-header-opacity));
-  -webkit-mask: var(--corner) no-repeat 50% 50%;
-  mask: var(--corner) no-repeat 50% 50%;
-}
-
-footer {grid-template-columns: 1fr auto;}
-
-/* corner top left */
-header::before {
-  bottom: -6.25rem;
-  left: 0rem;
-  transform: rotate(0deg);
-}
-
-/* corner bottom right */
-footer::after {
-  top: -6.25rem;
-  right: 0rem;
-  transform: rotate(180deg);
-}
-
-footer:last-child {padding-right: 0.3rem;}
-
-footer button {
-  background-color: currentColor;
-  width: 1rem;
-  height: 1rem;
-  transition: 250ms;
-}
-
-footer button:hover {background-color: currentColor;}
-
-footer li:nth-of-type(1) {
-  -webkit-mask: var(--facebook) no-repeat 50% 50%;
-  mask: var(--facebook) no-repeat 50% 50%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-}
-
-footer li:nth-of-type(2) {
-  -webkit-mask: var(--twitterx) no-repeat 50% 50%;
-  mask: var(--twitterx) no-repeat 50% 50%;
-}
-
-footer li:nth-of-type(3) {
-  -webkit-mask: var(--pinterest) no-repeat 50% 50%;
-  mask: var(--pinterest) no-repeat 50% 50%;
-}
-
-footer li:nth-of-type(4) {
-  -webkit-mask: var(--instagram) no-repeat 50% 50%;
-  mask: var(--instagram) no-repeat 50% 50%;
-}
-
-footer li:nth-of-type(5) {
-  -webkit-mask: var(--youtube) no-repeat 50% 50%;
-  mask: var(--youtube) no-repeat 50% 50%;
-}
-
-
-
-/*  MAIN
-- - - - - - - - - - - - - - - - - */
-
-
-/*  TAB PANELS
-- - - - - - - - - - - - - - - - - */
-panel-tab {
-  position: relative;
-  overflow: hidden;
-  display: none;
-  /* Chrome, still requires prefix in 2022
-    -webkit-mask: var(--circle-logo); */
-
-  /* center/cover no-repeat */
-
-  /* Firefox and Safari
-    mask: var(--circle-logo); */
-}
-
-panel-tab app-logo2 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: .1;
-
-  background-color: rgba(var(--bg-header),var(--bg-header-opacity));
-  -webkit-mask: var(--seal) no-repeat 50% 50%;
-  mask: var(--seal) no-repeat 50% 50%;
-}
-
-
-
-/*  TYPOGRAPHY
-- - - - - - - - - - - - - - - - - */
-panel-tab :where(h1, h2, h3, h4) {
-  font-family: cinzel, serif;
-  text-align: center;
-  text-wrap: balance;
-  padding: 1rem;
-  margin: 0;
-}
-
-panel-tab :where(h1, h2, h3, h4)::before {content: "~ "}
-panel-tab :where(h1, h2, h3, h4)::after {content: " ~"}
-
-panel-tab h1 {font-size: 1.85rem;}
-panel-tab h2 {font-size: 1.60rem;}
-panel-tab h3 {font-size: 1.45rem;}
-panel-tab h4 {font-size: 1.25rem;}
-
-panel-tab h4 {
-  padding-left: 1rem;
-  letter-spacing: 0.05rem;
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
 }
 
 hr {
-  display: grid;
-  grid-auto-flow: column dense;
-  width: 90%;
-  overflow: visible;
-  justify-items: center;
-  align-items: center;
-  color: currentcolor;
-  font-family: serif;
-  font-size: 4rem;
-  background: linear-gradient(90deg, rgba(var(--bg-header),0.0) 0%, rgba(var(--bg-header),0.0) 0%, rgba(var(--bg-header),1.0) 50%, rgba(var(--bg-header),0.0) 100%); /* line */
-  height: 3px;
-  opacity: 0.2;
+	display: grid;
+	grid-auto-flow: column dense;
+	overflow: visible;
+	justify-items: center;
+	align-items: center;
+	color: currentcolor;
+	font-family: serif;
+	font-size: 4rem;
+	background: linear-gradient(90deg, rgba(var(--bg-header), 0.0) 0%, rgba(var(--bg-header), 0.0) 0%, rgba(var(--bg-header), 1.0) 50%, rgba(var(--bg-header), 0.0) 100%);
+	/* line */
+	height: 3px;
+	opacity: 0.2;
 }
 
 hr::before {
-  content: '\00A7';
-  /* content: "§"; */
-  margin-top: -2.25rem;
-  transform: rotate(90deg);
-  transform-origin: center;
-}
-
-/* TODO
-ol,ul {
-  columns: 72ch;
-}
-*/
-
-.cinzel {
-  font-family: 'Cinzel Decorative';
-  font-weight: 700;
-}
-
-p {padding: 0 1rem;}
-
-p:last-of-type {padding-bottom: 1rem;}
-
-p img {
-  float: left;
-  margin-right: .5rem;
-  margin-bottom: .5rem;
-}
-
-span-bold {font-weight: 900;}
-
-
-/*  Summary and Details Widget
-    https://web.dev/learn/html/details/
-*/  /* details + details {border-top: none;}
-    details[open] {padding-bottom: 1em;} */
-
-    summary {
-      position: relative;
-      cursor: pointer;
-    }
-
-    summary:hover {
-      background-color: rgba(
-        var(--bg-accent-color),
-        var(--bg-accent-opacity)
-      );
-    }
-
-    summary::marker {content: none;}
-    /* summary::before,
-    summary::after {content: '';}
-    summary::before,
-    summary::after {
-        width: .75em;
-        height: 0;
-        border-bottom: 2px solid;
-        position: absolute;
-        top: calc(50% - 1px);
-        right: 1rem;
-        transform: translateY(-50%);
-      }
-    summary::after {
-      transform: rotate(90deg);
-      transform-origin: 50% 50%;
-    }
-
-    [open] > summary::after {transform: rotate(0deg);} */
-
-/* - - - - - - - - - - - - - - - - - - - */
-
-
-
-/* Tables */
-fees-table ul {
-  display: grid;
-  list-style-type: none;
-  padding: 0 0 1rem 0;
-}
-
-fees-table li {
-  display: grid;
-  grid-template-columns: 11rem 1fr 1fr;
-  border-bottom: solid 1px currentColor;
-}
-
-fees-table table-cell {padding: .5rem 1rem;}
-
-@media screen and (max-width: 37.5rem) {
-  fees-table li:first-of-type {display: none;}
-
-  fees-table li {
-    grid-template-columns: 1fr;
-    padding: 1rem 0;}
-
-  fees-table li table-cell {
-    display: grid;
-    grid-template-columns: 10rem 1fr;
-  }
-
-  fees-table table-cell::before {
-    content: attr(data-label);
-    color: currentColor;
-    padding-right: 1rem;
-  }
+	content: '\00A7';
+	/* content: "§"; */
+	margin-top: -3rem;
+	transform: rotate(90deg);
+	transform-origin: center;
 }
 
 
-responsive-table ul {
-  display: grid;
-  list-style-type: none;
-  padding: 0 0 1rem 0;
+img[src*="staff"]::before {
+	background-image: url('/assets/images/ui/corner.svg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	content: "";
+	position: absolute;
+	width: 5rem;
+	height: 5rem;
+	top: 0;
+	left: 0;
+	transform: rotate(-90deg);
+	fill: var(--corner-fill);
 }
 
-responsive-table ul li {
-  display: grid;
-  grid-template-columns: 11rem 1fr 1fr;
-  border-bottom: solid 1px currentColor;
+swiper-container {
+	width: 100%;
+	height: auto;
 }
 
+swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-responsive-table ul li table-cell {padding: .5rem 1rem;}
-
-@media screen and (max-width: 37.5rem) {
-  responsive-table li:first-of-type {display: none;}
-
-  responsive-table li {
-    grid-template-columns: 1fr;
-    padding: 1rem 0;}
-
-    responsive-table li table-cell {
-    display: grid;
-    grid-template-columns: 10rem 1fr;
-  }
-
-    responsive-table table-cell::before {
-    content: attr(data-label);
-    color: currentColor;
-    padding-right: 1rem;
-  }
+swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 
 
-/* - - - - - - - - - - - - - - - - - - - */
-
-
-input {
-  display: none;
-  accent-color: rgba(var(--accent));
+/*  Accessibility
+--------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 
-/*  TODO:
-    Baseline for default links
-    Posted on: Jun 9, 2023
-    Written by Stephanie Eckles
-    https://moderncss.dev/modern-css-for-dynamic-component-based-architecture/#css-reset-additions 
-*/
-a:not([class]) {
-  /* Relatively sized thickness and offset */
-  text-decoration-thickness: max(0.08rem, 0.063rem);
-  text-underline-offset: 0.15rem;
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar */
 }
 
-a {
-  color: rgba(var(--txt-link), 0.7);
-  text-decoration: none;
-  box-shadow: 0 0.063rem 0 rgba(0,255,255,0);
-  transition: all 250ms;
+
+/*  Typography
+--------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: 'Times New Roman', 'Times New Roman', Times, serif;
+	font-size: 18px;
+	line-height: 1.5;
 }
 
-a:hover {
-  color: rgba(var(--txt-link), 1);
-  box-shadow: 0 0.063rem 0 rgba(var(--txt-link), 1);
+h1,
+h2,
+h3 {
+	text-align: center;
+	margin: 0;
+	padding: 1em;
+	text-wrap: balance;
 }
 
-a[href^="tel:"],
-a[href^="mailto:"],
-no-support code {
-  background-color: rgb(76,88,111);
-  color: rgba(255,255,255,1.0) !important;
-  padding: .01rem .2rem;
-  border-radius: .27rem;
-}
-
-a[href^="tel:"] {
-  color: var(--txt-link-phone);
-  text-decoration: none;
-  margin-right: 0.rem;
-}
-
-a[href^="mailto:"] {
-  color: var(--txt-link-mailto);
-  text-decoration: none;
-  margin-right: 0.8rem;
-}
-
-/* https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/ */
-:focus-visible {
-  --outline-size: max(0.125rem, 0.15rem);
-
-  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
-    var(--outline-color, currentColor);
-  outline-offset: var(--outline-offset, var(--outline-size));
+p {
+	margin: 0;
+	padding: 1em;
 }
 
 
 
 
-/*  VIDEO BACKGROUND
-- - - - - - - - - - - - - - - - - */
-/* https://alvarotrigo.com/blog/how-to-create-a-youtube-video-background-with-css/ */
+/* Promo section */
 
-/* h4 {
-  background: rgba(0,0,0,0.5);
-  padding: 10px;
+.promo .logo,
+.promo .site-title {
+	text-align: center;
 }
 
-.video-container{
-  width: 100vw;
-  height: 100vh;
+.promo .logo {
+	padding: 1rem;
+	width: minmax(10em, 50%);
 }
 
- iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-#text {
-  position: absolute;
-  color: #FFFFFF;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* .site-title {
+	margin-top: -1em;
+	margin-bottom: 3em;
 } */
 
-/*
-@media (min-aspect-ratio: 16/9) {
-  .video-container iframe {
-    height: 56.25vw;
-  }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-container iframe {
-    width: 177.78vh;
-  }
-}
-*/
-
-
-
-/*  ANNOUNCEMENTS
-- - - - - - - - - - - - - - - - - */
-new-announcements,
-no-support {
-  background-color: #ff00002b;
-  text-wrap: balance;
-  /* z-index: -1; */
-  -webkit-box-shadow: 0 0.063rem 0 0 rgba(255,255,255,0.7), 0 0.125rem 0.125rem 0 rgba(0,0,0,0.75);
-  -moz-box-shadow: 0 0.063rem 0 0 rgba(255,255,255,0.7), 0 0.125rem 0.125rem 0 rgba(0,0,0,0.75);
-  box-shadow: 0 0.063rem 0 0 rgba(255,255,255,0.7), 0 0.125rem 0.125rem 0 rgba(0,0,0,0.50);
-}
-
-new-announcements {text-align: center;}
-
-new-announcements h2 {margin-bottom: 0;}
-
-
-
-
-
-/*  SCROLLBARS
-- - - - - - - - - - - - - - - - - */
-panel-list {
-  display: grid;
-  overflow: overlay; /* scrollable */
-  position: relative;
-}
-
-*::-webkit-scrollbar {
-  display: block;
-  width: 1rem;
-}
-
-*::-webkit-scrollbar-button {display: none;}
-*::-webkit-scrollbar-track {background-color: rgba(48,190,255,0);}
-*::-webkit-scrollbar-track-piece {background-color: rgba(48,190,255,0);}
-* {--scrollbar-color: rgba(48,190,255,0);}
-
-*:hover,
-*:focus,
-*:focus-within {
-  --scrollbar-color: rgba(
-    var(--bg-accent-color),
-    var(--bg-accent-opacity)
-  ) !important;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(48,190,255,0);
-  border: 0.313rem solid transparent;
-  border-radius: 1.5rem;
-  box-shadow: 0.25rem 0 0 0.25rem var(--scrollbar-color) inset;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-color);
-  border: 0 solid transparent;
-  box-shadow: none;
-}
-
-/* FIREFOX */
-/* Target elements, not :root{} */
-/* https://codeconvey.com/custom-scrollbar-css-for-all-browsers/ */
-panel-list {
-  scrollbar-color: rgba(48,190,255,0) rgba(48,190,255,0); /* Thumb and track color */
-  scrollbar-width: thin; /* Track width */
-}
-panel-list:hover {scrollbar-color: rgba(48,190,255,0.3) rgba(48,190,255,0);}
-
-/* https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
-/* Hide scrollbar if width is less than */
-@media (max-width: 43.75rem) {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  *::-webkit-scrollbar {display: none;}
-  /* Hide scrollbar for Internet Explorer, Edge and Firefox */
-  * {
-    -ms-overflow-style: none;  /* Internet Explorer and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  panel-list {overflow: auto;}
+/* Announcement section */
+.announcements {
+	background-color: rgba(254, 242, 241, 1);
+	text-align: center;
 }
 
 
-
-
-/*  BROWSER FEATURE SUPPORT
-- - - - - - - - - - - - - - - - - */
-/* Hide the first code element within no-support warning block if :has() support is detected */
-@supports selector(:has(*)) {no-support {display: none;}}
-
-/* Hide no-support block if both code elements are display: none;
-no-support ul li:not(:has(li code)) no-support {visibility: hidden;}
-
-:root:has(code[style*="visibility: hidden"]) no-support {
-  display: none;
-}
-*/
-
-
-
-
-/*  LOADING ANIMATION
-- - - - - - - - - - - - - - - - - */
-css-loader {
-  width: 5rem;
-  height: 5rem;
-  display: grid;
-  align-self: center;
-  justify-self: center;
+/* Staff section */
+.staff {
+	padding-bottom: 2em;
 }
 
-css-loader::before,
-css-loader::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 4rem;
-  height: 4rem;
-  background-color: rgba(0,0,0,0);
-  border: 1rem solid rgba(102,204,255,1);
-  opacity: 0.3;
-  border-radius: 50%;
+
+/* Splash section */
+
+.splash {
+	background-color: rgba(249, 202, 205, 1);
 }
 
-css-loader::before {
-  border-left: 1rem solid rgba(0,0,0,0);
-  border-right: 1rem solid rgba(0,0,0,0);
-  animation: spin01 3000ms infinite ease alternate;
+
+@media screen and (min-width: 600px) {
+	.splash-text {
+		columns: 2;
+		column-gap: 2em;
+	}
+
+	.splash-text p {
+		padding-top: 0;
+	}
 }
 
-css-loader::after {
-  border-left: 1rem solid rgba(0,0,0,0);
-  border-right: 1rem solid rgba(0,0,0,0);
-  border-top: 1rem solid rgba(0,0,0,0);
-  animation: spin02 4000ms infinite linear;
+/* Buckets section */
+
+.buckets {
+	padding: 2em 1em 1em;
 }
 
-@keyframes spin01 {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(720deg);}
+.buckets ul {
+	margin: 0;
+	padding: 0;
 }
 
-@keyframes spin02 {
-  0% {transform: rotate(720deg);}
-  100% {transform: rotate(0deg);}
+.buckets li {
+	margin-bottom: 1em;
+	background: white;
+	list-style-type: none;
+}
+
+.bucket {
+	padding: 1.5em;
+}
+
+/* More section */
+
+.more {
+	padding: 2em;
+}
+
+/* Twins section */
+
+.twin {
+	padding: 2em;
+	background: #2185C5;
+	color: white;
+}
+
+.twin:last-of-type {
+	background: #FF7F66;
+}
+
+/* Colophon section */
+.colophon {
+	padding: 2em;
+	background: hsl(0, 0%, 10%);
+	color: white;
+	text-align: center;
+}
+
+.colophon a {
+	color: white;
+}
+
+.colophon a:hover,
+.colophon a:focus {
+	border-bottom: 1px solid white;
+}
+
+/*  If no grid support, limit width to 50em and center align
+----------------------------------------------------*/
+@supports not (display: grid) {
+	.grid {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+}
+
+/*  Use flex to create a three-bucket layout
+----------------------------------------------------*/
+
+@media screen and (min-width: 700px) {
+	@supports (display: flex) {
+
+		.buckets ul {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.buckets li {
+			width: 31%;
+		}
+
+	}
+}
+
+/*  CSS Grid layout for wider screens, when browser supports grid:
+----------------------------------------------------*/
+
+@media screen and (min-width: 600px) {
+	/* Layout with CSS Grid */
+	@supports (display: grid) {
+
+		/* Four-column layout. Two center columns have a total max width of 50em: */
+		.grid {
+
+			display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+		}
+
+		/* Center items by placing them in the two center columns: */
+		.splash-content,
+		.more-content,
+		.buckets ul {
+			grid-column: 2/4;
+		}
+
+		/* Use automatic grid placement + span to let each item span two columns:*/
+		.twin,
+		.colophon aside {
+			grid-column: span 2;
+		}
+
+	}
 }
