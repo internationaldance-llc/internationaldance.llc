@@ -1,0 +1,61 @@
+{
+  "name": "International Dance",
+  "short_name": "International.Dance",
+  "id": "/index.html",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0d101b",
+  "theme_color": "rgb(19,20,23)",
+  "orientation": "portrait-primary",
+  "description": "International Dance",
+  "icons": [
+    {
+      "src": "assets/images/pwa/pwa_72x72x72.png",
+      "type": "image/png",
+      "sizes": "72x72",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_96x96x72.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_128x128x72.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_144x144x72.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_152x152x72.png",
+      "type": "image/png",
+      "sizes": "152x152",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_192x192x72.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/icons/icon-384x384_light-15.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/images/pwa/pwa_512x512x72.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ]
+}
