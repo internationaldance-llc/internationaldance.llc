@@ -1,323 +1,140 @@
-/* https://codepen.io/mor10/pen/xdYoNO?editors=1100
- * NOTE:
- * Grid/Flex layout stuff starts at line 187.
- * The stuff before is just boring old CSS to make content look not crappy.
- */
-
-
-/*  CSS Reset
- *  Based on Eric Meyer's CSS reset v2.0
- *  http://meyerweb.com/eric/tools/css/reset/
- *  and HTML5 Doctor CSS Reset
- *  http://html5doctor.com/html-5-reset-stylesheet/
-----------------------------------------------------*/
-:root {
-	--corner-fill: rgba(255, 255, 255, 0.7);
-	--logo-fill: rgba(255, 255, 255, 1.0);
-	--menu-fill: #999;
-}
-
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-}
-
-body {
-	margin: 0;
-}
-
-img {
-	display: block;
-	border: 0;
-	width: 100%;
-	height: auto;
-}
-
-hr {
-	display: grid;
-	grid-auto-flow: column dense;
-	overflow: visible;
-	justify-items: center;
-	align-items: center;
-	color: currentcolor;
-	font-family: serif;
-	font-size: 4rem;
-	background: linear-gradient(90deg, rgba(var(--bg-header), 0.0) 0%, rgba(var(--bg-header), 0.0) 0%, rgba(var(--bg-header), 1.0) 50%, rgba(var(--bg-header), 0.0) 100%);
-	/* line */
-	height: 3px;
-	opacity: 0.2;
-}
-
-hr::before {
-	content: '\00A7';
-	/* content: "§"; */
-	margin-top: -3rem;
-	transform: rotate(90deg);
-	transform-origin: center;
+:root{
+  --svg-fill: currentColor;
 }
 
 
-img[src*="staff"]::before {
-	background-image: url('/assets/images/ui/corner.svg');
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	content: "";
-	position: absolute;
-	width: 5rem;
-	height: 5rem;
-	top: 0;
-	left: 0;
-	transform: rotate(-90deg);
-	fill: var(--corner-fill);
+/* Define default styles (light theme) */
+:root:has(meta[name="color-scheme"][content="light"]) {
+
+    /* https://www.happyhues.co/palettes/7 */
+    --header-bg: rgba(210,234,229,1);
+    --header-color: #001858;
+    --nav-bg: rgba(255,255,255,1);
+    --about-bg: rgba(254,242,241,1);
+    --staff-bg: rgba(255,255,255,1);
+    --classes-bg: rgba(254,242,241,1);
+    --performances-bg: rgba(243,245,248,1);
+    --history-bg: rgba(255,255,255,1);
+    --contact-bg: rgba(243,245,248,1);
+
+    --fluid-txt-header: min(max(0.9rem, 3vw), 15px);
+    --fluid-txt-main: min(max(1rem, 4vw), 22px);
+
+
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+    --svg-fill: #000000;
+    --text-link-color: #1D1D1D;
+
+    --background-hover-color: rgba(0,0,0,0.1);
+    /* ...other variable definitions... */
+  }
+
+  /* Override styles for dark theme */
+  :root:has(meta[name="color-scheme"][content="dark"]) {
+    --background-color: #000000;
+    --text-color: #FFFFFF;
+    --svg-fill: #FFFFFF;
+    --text-link-color: #FDFDFD;
+
+    --background-hover-color: rgba(255,255,255,0.1);
+    /* ...other variable definitions... */
+  }
+
+  /* Apply the variables to elements */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  svg {
+    fill: var(--svg-fill);
+  }
+
+  /* ...other style rules... */
+
+
+
+
+body {margin: 0;}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
 
-swiper-container {
-	width: 100%;
-	height: auto;
+nav app-logo {
+   /* Add dimensions to span */
+   display: inline-block;
+   justify-self: start;
+   width: 15em;
+   height: 4rem;
+   margin: 0 .5rem;
+   /* Add background color */
+   background-color: currentColor;
+   /* Add mask image, use variable to reduce duplication */
+   --svg: url('https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/logo.svg');
+   -webkit-mask-image: var(--svg);
+   mask-image: var(--svg);
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-size: 100% 100%;
+   mask-size: 100% 100%;
 }
 
-swiper-slide {
-	text-align: center;
-	font-size: 18px;
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+nav menu {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0;
 }
 
-swiper-slide img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+nav menu li {
+  list-style-type: none;
+  padding: .5em;
 }
 
+nav input[type="checkbox"] {display: none;}
 
-
-/*  Accessibility
---------------------------*/
-/* Text meant only for screen readers */
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
+nav label {
+  display: none; /* Hide hamburger icon initially */
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: .5rem;
 }
 
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-	/* Above WP toolbar */
+/* Hide the menu and show the hamburger icon in medium view */
+@media (max-width: 35rem) {
+
+  nav label {display: block;}
+
+  nav menu {display: none;}
+
+  nav input[type="checkbox"]:checked ~ menu {
+    display: grid; /* Show menu when checkbox is checked */
+    grid-auto-flow: row;
+    grid-column: span 2;
+  }
+
+  nav input[type="checkbox"]:checked ~ menu li {
+    text-align: center;
+  }
+  nav input[type="checkbox"]:checked ~ menu li:hover {
+    background-color: var(--background-hover-color);
+  }
 }
 
-
-/*  Typography
---------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: 'Times New Roman', 'Times New Roman', Times, serif;
-	font-size: 18px;
-	line-height: 1.5;
+/* Swap icon logos in narrow view */
+@media (max-width: 17rem) {
+nav app-logo {
+  --svg: url('https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/toeshoe.svg');
+  width: 1.5rem;
+  height: 2.5rem;
+  }
 }
 
-h1,
-h2,
-h3 {
-	text-align: center;
-	margin: 0;
-	padding: 1em;
-	text-wrap: balance;
-}
-
-p {
-	margin: 0;
-	padding: 1em;
-}
-
-
-
-
-/* Promo section */
-
-.promo .logo,
-.promo .site-title {
-	text-align: center;
-}
-
-.promo .logo {
-	padding: 1rem;
-	width: minmax(10em, 50%);
-}
-
-/* .site-title {
-	margin-top: -1em;
-	margin-bottom: 3em;
-} */
-
-/* Announcement section */
-.announcements {
-	background-color: rgba(254, 242, 241, 1);
-	text-align: center;
-}
-
-
-/* Staff section */
-.staff {
-	padding-bottom: 2em;
-}
-
-
-/* Splash section */
-
-.splash {
-	background-color: rgba(249, 202, 205, 1);
-}
-
-
-@media screen and (min-width: 600px) {
-	.splash-text {
-		columns: 2;
-		column-gap: 2em;
-	}
-
-	.splash-text p {
-		padding-top: 0;
-	}
-}
-
-/* Buckets section */
-
-.buckets {
-	padding: 2em 1em 1em;
-}
-
-.buckets ul {
-	margin: 0;
-	padding: 0;
-}
-
-.buckets li {
-	margin-bottom: 1em;
-	background: white;
-	list-style-type: none;
-}
-
-.bucket {
-	padding: 1.5em;
-}
-
-/* More section */
-
-.more {
-	padding: 2em;
-}
-
-/* Twins section */
-
-.twin {
-	padding: 2em;
-	background: #2185C5;
-	color: white;
-}
-
-.twin:last-of-type {
-	background: #FF7F66;
-}
-
-/* Colophon section */
-.colophon {
-	padding: 2em;
-	background: hsl(0, 0%, 10%);
-	color: white;
-	text-align: center;
-}
-
-.colophon a {
-	color: white;
-}
-
-.colophon a:hover,
-.colophon a:focus {
-	border-bottom: 1px solid white;
-}
-
-/*  If no grid support, limit width to 50em and center align
-----------------------------------------------------*/
-@supports not (display: grid) {
-	.grid {
-		max-width: 50em;
-		margin: 0 auto;
-	}
-}
-
-/*  Use flex to create a three-bucket layout
-----------------------------------------------------*/
-
-@media screen and (min-width: 700px) {
-	@supports (display: flex) {
-
-		.buckets ul {
-			display: flex;
-			justify-content: space-around;
-		}
-
-		.buckets li {
-			width: 31%;
-		}
-
-	}
-}
-
-/*  CSS Grid layout for wider screens, when browser supports grid:
-----------------------------------------------------*/
-
-@media screen and (min-width: 600px) {
-	/* Layout with CSS Grid */
-	@supports (display: grid) {
-
-		/* Four-column layout. Two center columns have a total max width of 50em: */
-		.grid {
-
-			display: grid;
-			grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
-		}
-
-		/* Center items by placing them in the two center columns: */
-		.splash-content,
-		.more-content,
-		.buckets ul {
-			grid-column: 2/4;
-		}
-
-		/* Use automatic grid placement + span to let each item span two columns:*/
-		.twin,
-		.colophon aside {
-			grid-column: span 2;
-		}
-
-	}
+a {
+  color: var(--text-link-color);
+  text-decoration: none;
 }
