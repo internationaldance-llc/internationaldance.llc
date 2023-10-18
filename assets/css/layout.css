@@ -1,3 +1,5 @@
+/* https://cloudfour.com/thinks/when-to-nest-css/ */
+
 body {
   margin: 0;
   overflow: hidden;
@@ -23,15 +25,16 @@ app-container > * {
 }
 
 header {
-  background-color: var(--header-bg);
-  color: var(--header-color);
-
   grid-area: header;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-items: center;
   font-size: var(--fluid-txt-header);
+
+  @media (min-width: 40em) {
+    grid-template-columns: auto 1fr auto;
+  }
 
   > app-promo {
     padding: 0.5rem 1rem;
@@ -65,5 +68,19 @@ header {
         width: 1rem;
       }
     }
+  }
+}
+
+section {
+  display: grid;
+}
+
+section:nth-of-type(1),
+section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 40em) {
+    grid-template-columns: 1fr 1fr;
   }
 }
