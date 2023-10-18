@@ -1,62 +1,63 @@
-:root{
+:root {
   --svg-fill: currentColor;
 }
 
-
 /* Define default styles (light theme) */
 :root:has(meta[name="color-scheme"][content="light"]) {
+  /* https://www.happyhues.co/palettes/7 */
+  --header-bg: rgba(210, 234, 229, 1);
+  --header-color: #001858;
+  --nav-bg: rgba(255, 255, 255, 1);
+  --about-bg: rgba(254, 242, 241, 1);
+  --staff-bg: rgba(255, 255, 255, 1);
+  --classes-bg: rgba(254, 242, 241, 1);
+  --performances-bg: rgba(243, 245, 248, 1);
+  --history-bg: rgba(255, 255, 255, 1);
+  --contact-bg: rgba(243, 245, 248, 1);
 
-    /* https://www.happyhues.co/palettes/7 */
-    --header-bg: rgba(210,234,229,1);
-    --header-color: #001858;
-    --nav-bg: rgba(255,255,255,1);
-    --about-bg: rgba(254,242,241,1);
-    --staff-bg: rgba(255,255,255,1);
-    --classes-bg: rgba(254,242,241,1);
-    --performances-bg: rgba(243,245,248,1);
-    --history-bg: rgba(255,255,255,1);
-    --contact-bg: rgba(243,245,248,1);
+  --fluid-txt-header: min(max(0.9rem, 3vw), 15px);
+  --fluid-txt-main: min(max(1rem, 4vw), 22px);
 
-    --fluid-txt-header: min(max(0.9rem, 3vw), 15px);
-    --fluid-txt-main: min(max(1rem, 4vw), 22px);
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --svg-fill: #000000;
+  --text-link-color: #1d1d1d;
 
+  --background-hover-color: rgba(0, 0, 0, 0.1);
+  /* ...other variable definitions... */
+}
 
-    --background-color: #FFFFFF;
-    --text-color: #000000;
-    --svg-fill: #000000;
-    --text-link-color: #1D1D1D;
+/* Override styles for dark theme */
+:root:has(meta[name="color-scheme"][content="dark"]) {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --svg-fill: #ffffff;
+  --text-link-color: #fdfdfd;
 
-    --background-hover-color: rgba(0,0,0,0.1);
-    /* ...other variable definitions... */
-  }
+  --background-hover-color: rgba(255, 255, 255, 0.1);
+  /* ...other variable definitions... */
+}
 
-  /* Override styles for dark theme */
-  :root:has(meta[name="color-scheme"][content="dark"]) {
-    --background-color: #000000;
-    --text-color: #FFFFFF;
-    --svg-fill: #FFFFFF;
-    --text-link-color: #FDFDFD;
+/* Apply the variables to elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
 
-    --background-hover-color: rgba(255,255,255,0.1);
-    /* ...other variable definitions... */
-  }
+svg {
+  fill: var(--svg-fill);
+}
 
-  /* Apply the variables to elements */
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
+/* ...other style rules... */
 
-  svg {
-    fill: var(--svg-fill);
-  }
+body {
+  margin: 0;
+}
 
-  /* ...other style rules... */
-
-
-
-
-body {margin: 0;}
+header {
+  background-color: var(--header-bg);
+  color: var(--header-color);
+}
 
 nav {
   display: grid;
@@ -65,22 +66,22 @@ nav {
 }
 
 nav app-logo {
-   /* Add dimensions to span */
-   display: inline-block;
-   justify-self: start;
-   width: 15em;
-   height: 4rem;
-   margin: 0 .5rem;
-   /* Add background color */
-   background-color: currentColor;
-   /* Add mask image, use variable to reduce duplication */
-   --svg: url('https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/logo.svg');
-   -webkit-mask-image: var(--svg);
-   mask-image: var(--svg);
-   -webkit-mask-repeat: no-repeat;
-   mask-repeat: no-repeat;
-   -webkit-mask-size: 100% 100%;
-   mask-size: 100% 100%;
+  /* Add dimensions to span */
+  display: inline-block;
+  justify-self: start;
+  width: 15em;
+  height: 4rem;
+  margin: 0 0.5rem;
+  /* Add background color */
+  background-color: currentColor;
+  /* Add mask image, use variable to reduce duplication */
+  --svg: url("https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/logo.svg");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 nav menu {
@@ -91,25 +92,30 @@ nav menu {
 
 nav menu li {
   list-style-type: none;
-  padding: .5em;
+  padding: 0.5em;
 }
 
-nav input[type="checkbox"] {display: none;}
+nav input[type="checkbox"] {
+  display: none;
+}
 
 nav label {
   display: none; /* Hide hamburger icon initially */
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 /* Hide the menu and show the hamburger icon in medium view */
 @media (max-width: 35rem) {
+  nav label {
+    display: block;
+  }
 
-  nav label {display: block;}
-
-  nav menu {display: none;}
+  nav menu {
+    display: none;
+  }
 
   nav input[type="checkbox"]:checked ~ menu {
     display: grid; /* Show menu when checkbox is checked */
@@ -127,14 +133,68 @@ nav label {
 
 /* Swap icon logos in narrow view */
 @media (max-width: 17rem) {
-nav app-logo {
-  --svg: url('https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/toeshoe.svg');
-  width: 1.5rem;
-  height: 2.5rem;
+  nav app-logo {
+    --svg: url("https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/toeshoe.svg");
+    width: 1.5rem;
+    height: 2.5rem;
   }
 }
 
 a {
   color: var(--text-link-color);
   text-decoration: none;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+  padding: 1rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+sub-section app-seal {
+  /* Add dimensions to span */
+  display: grid;
+  justify-self: start;
+  height: 100%;
+  width: 100%;
+  min-height: 12.5rem;
+  min-width: 12.5rem;
+
+  /* Add background color */
+  background-color: currentColor;
+
+  /* Add mask image, use variable to reduce duplication */
+  --svg: url("https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/logos/seal.svg");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  @media (min-width: 40em) {
+    min-height: 20rem;
+    min-width: 20rem;
+  }
+}
+
+section:nth-of-type(1) {
+  background-color: var(--about-bg);
+}
+
+section:nth-of-type(1) sub-section:nth-of-type(1) {
+  background: url("//static.showit.co/1200/ozPwSvkWTh2Ekce--IW0RQ/72835/paint-splotch-c-white.png")
+    cover left center no-repeat;
+}
+section:nth-of-type(1) sub-section:nth-of-type(2) {
+  padding: 1rem;
+  background: url("//static.showit.co/1200/EwEsUuxLSEiL3_xJumf6cQ/72835/lines.png")
+      cover right bottom no-repeat,
+    url("//static.showit.co/800/fSy9bSmFT4K3gp5Ov_1nZw/72835/paint-daubs-pink.png")
+      cover right bottom no-repeat;
+}
+
+footer {
+  background-color: var(--header-bg);
+  color: var(--header-color);
 }
