@@ -71,8 +71,16 @@ header {
   }
 }
 
+main {
+  overflow: auto;
+}
+
 section {
   display: grid;
+}
+
+.staff {
+  display: block!important;
 }
 
 section:nth-of-type(1),
@@ -83,4 +91,40 @@ section:nth-of-type(2) {
   @media (min-width: 40em) {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/*  Essential CSS Breakpoints for Web Developers:
+    https://twitter.com/csaba_kissi/status/1714168372785725623
+    Csaba Kissi
+    2023.10.17
+*/
+
+/* Mobile */
+@media (max-width: 480px) {
+  /* styles */
+}
+
+/* Extra small devices */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* styles */
+}
+
+/* Small tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* styles */
+}
+
+/* Large tablets/laptops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* styles */
+}
+
+/* Desktops */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  /* styles */
+}
+
+/* Extra large screens */
+@media (min-width: 1920px) {
+  /* styles */
 }

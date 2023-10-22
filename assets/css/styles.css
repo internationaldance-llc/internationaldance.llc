@@ -1,4 +1,7 @@
 :root {
+	--corner-fill: rgba(255, 255, 255, 0.7);
+	--logo-fill: rgba(255, 255, 255, 1.0);
+	--menu-fill: #999;
   --svg-fill: currentColor;
 }
 
@@ -197,4 +200,9 @@ section:nth-of-type(1) sub-section:nth-of-type(2) {
 footer {
   background-color: var(--header-bg);
   color: var(--header-color);
+
+  & app-author {
+    padding: .5rem 1rem;
+  }
+
 }

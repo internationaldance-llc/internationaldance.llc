@@ -1,10 +1,14 @@
 ## DEV NOTES : :
+Updated: `2023.10.21 12:13:57`
+By: [@D7460N](https://github.com/D7460N)
+
+<br />
 
 ---
 
-### CITATIONS : :
+<br />
 
-ARTICLES : :
+### ARTICLES : :
 
 [Definitive edition of "How to Favicon" in 2023](https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7) [ 2023.08.11 ]
 I thought adding a favicon to my website was a simple thing: create a file called favicon.ico, save it in the root directory, and add the code to the `<head>` section of the HTML file. I was wrong. ~ [Masa Kudamatsu](https://dev.to/masakudamatsu)
@@ -30,13 +34,11 @@ The truth is, if you want to build the most-accessible product possible, you nee
 [Change favicon based on dark/light color mode](https://www.codewithshripal.com/tips/css/change-favicon-based-on-dark-light-mode) [ 2022.05.19 ]
 When we use dark color mode, all the native application windows also changes its color to dark. This cause issue that favicon designed for light color mode no longer getting visible properly on dark color mode. ~ [Shripal Soni](https://www.codewithshripal.com/authors/shripal-soni)
 
-[Essential CSS Breakpoints for Web Developers](https://twitter.com/csaba_kissi/status/1714168372785725623)
-➡️ Mobile: Up to 480px
-➡️ Extra small devices: 481px to 767px
-➡️ Small tablets: 768px to 991px
-➡️ Large tablets/laptops: 992px to 1199px
-➡️ Desktops: 1200px to 1919px
-➡️ Extra large screens: 1920px and up
+[The New CSS Media Query Range Syntax](https://css-tricks.com/the-new-css-media-query-range-syntax/)
+We rely on CSS Media Queries for selecting and styling elements based on a targeted condition. That condition can be all kinds of things but typically fall into two camps: (1) the type of media that’s being used, and (2) a specific feature of the browser, device, or even the user’s environment. ~ [Preethi Selvam](https://css-tricks.com/author/selvampreethi/) [ 2022.10.31 ]
+
+[Using Grid Named Areas to Visualize (and Reference) Your Layout](https://css-tricks.com/using-grid-named-areas-to-visualize-and-reference-your-layout/)
+Whenever we build simple or complex layouts using CSS Grid, we’re usually positioning items with line numbers. Grid layouts contain grid lines that are automatically indexed with positive and negative line numbers (that is unless we explicitly name them). Positioning items with line numbers is a fine way to lay things out, though CSS Grid has numerous ways to accomplish the same with an undersized cognitive encumbrance. ~ [Preethi Selvam](https://css-tricks.com/author/selvampreethi/) [ 2022.08.26 ]
 
 <br />
 
@@ -54,3 +56,42 @@ Convert SVG image into favicon.ico, apple-touch-icon.png, android-chrome-192x192
 
 [chartscss.org](https://chartscss.org/) [ 2023.10.10 ]
 Charts.css is an open source CSS framework for data visualization. No dependencies. 76kb minified size. 7kb gzipped file size!
+
+<br />
+
+---
+
+<br />
+
+CODE : :
+
+[Essential CSS Breakpoints for Web Developers](https://twitter.com/csaba_kissi/status/1714168372785725623)
+➡️ Mobile: Up to 480px
+➡️ Extra small devices: 481px to 767px
+➡️ Small tablets: 768px to 991px
+➡️ Large tablets/laptops: 992px to 1199px
+➡️ Desktops: 1200px to 1919px
+➡️ Extra large screens: 1920px and up
+~ [Csaba Kissi](https://twitter.com/csaba_kissi) [ 2023.10.23 ]
+
+```
+
+/* Mobile */
+@media (max-width: 480px) {/* styles */}
+
+/* Extra small devices */
+@media (min-width: 481px) and (max-width: 767px) {/* styles */}
+
+/* Small tablets */
+@media (min-width: 768px) and (max-width: 991px) {/* styles */}
+
+/* Large tablets/laptops */
+@media (min-width: 992px) and (max-width: 1199px) {/* styles */}
+
+/* Desktops */
+@media (min-width: 1200px) and (max-width: 1919px) {/* styles */}
+
+/* Extra large screens */
+@media (min-width: 1920px) {/* styles */}
+
+```
