@@ -32,7 +32,15 @@ header {
   justify-items: center;
   font-size: var(--fluid-txt-header);
 
-  @media (min-width: 40em) {
+  @media (min-width: 26em) {
+    grid-template-columns: .75fr 1fr;
+
+    > app-social {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  @media (min-width: 37em) {
     grid-template-columns: auto 1fr auto;
   }
 
