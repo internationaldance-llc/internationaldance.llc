@@ -23,8 +23,9 @@
 
   --background-color: #ffffff;
   --text-color: #000000;
-  --svg-fill: #000000;
   --text-link-color: #1d1d1d;
+  --svg-fill: #000000;
+
 
   --background-hover-color: rgba(0, 0, 0, 0.1);
   /* ...other variable definitions... */
@@ -32,10 +33,13 @@
 
 /* Override styles for dark theme */
 :root:has(meta[name="color-scheme"][content="dark"]) {
-  --background-color: #000000;
-  --text-color: #ffffff;
-  --svg-fill: #ffffff;
-  --text-link-color: #fdfdfd;
+  --header-bg: rgba(240,217,213,1);
+  --header-color: rgba(56,45,42,1);
+  --header-text-link-color: rgba(56,45,42,1);
+  --background-color: rgba(56,45,42,1);
+  --text-color: rgba(240,217,213,1);
+  --svg-fill: rgba(240,217,213,1);
+  --header-text-link-color: #fdfdfd;
 
   --background-hover-color: rgba(255, 255, 255, 0.1);
   /* ...other variable definitions... */
@@ -60,6 +64,10 @@ body {
 header {
   background-color: var(--header-bg);
   color: var(--header-color);
+
+  a {
+    color: var(--header-text-link-color);
+  }
 }
 
 nav {
