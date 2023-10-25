@@ -11,7 +11,7 @@
   --header-bg: rgba(210, 234, 229, 1);
   --header-color: #001858;
   --nav-bg: rgba(255, 255, 255, 1);
-  --about-bg: rgba(254, 242, 241, 1);
+  --about-bg: rgba(253, 224, 221, 1);
   --staff-bg: rgba(255, 255, 255, 1);
   --classes-bg: rgba(254, 242, 241, 1);
   --performances-bg: rgba(243, 245, 248, 1);
@@ -145,11 +145,13 @@ nav label {
 
 a {
   color: var(--text-link-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
+.tagline {margin: 0; padding: 0;}
+
 :where(p, h1, h2, h3, h4, h5, h6) {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   text-align: center;
   text-wrap: balance;
 }
