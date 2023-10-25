@@ -129,20 +129,21 @@ body {
 
 <br />
 
-## DIAGRAMS : :
+### THEMES : :
 
-### Mermaid diagrams
+Requirements:
 
-[https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+1. Avoid flash of unstyled content (FOUC):
+   1. Directly override default UA stylesheet to avoid FOUC.
+   2. Must use `color-scheme` in `:root{ }`
+2. Toggle theme
+   1. Regardless of current theme
+   or
+   2. Set `checkbox` state based on current `color-scheme`
+3. Not repeat styles
+   1. Use custom properties (variables)
+4. CSS only!
 
-Here is a simple flow chart:
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-```
 
 <br />
 
@@ -150,12 +151,31 @@ graph TD;
 
 <br />
 
-Three theme considerations:
+### CUSTOM PROPERTIES : :
 
-1. Avoid FOUC:<br />
-   1. Directly override default UA stylesheet to avoid FOUC.
-   2. Must use `color-scheme` in `:root{ }`
-2. Toggle theme
-   1. Regardless of current theme
-3. Not repeat styles
-   1. Use custom properties (variables)
+```mermaid
+graph TD;
+    :root{vars}-->themes;
+    :root{vars}-->layouts;
+    :root{vars}-->responsiveness;
+```
+### Mermaid diagrams
+[https://mermaid.js.org/intro/](https://mermaid.js.org/intro/)
+
+[https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+
+Git-Graph
+[https://mermaid.js.org/intro/#git-graph](https://mermaid.js.org/intro/#git-graph)
+
+```mermaid
+    gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
