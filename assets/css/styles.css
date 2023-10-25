@@ -11,7 +11,9 @@
   --header-bg: rgba(210, 234, 229, 1);
   --header-color: #001858;
   --nav-bg: rgba(255, 255, 255, 1);
-  --about-bg: rgba(253, 224, 221, 1);
+  --about-bg: rgba(254,242,241,1);
+  /* --about-bg: rgba(253, 224, 221, 1); */
+  --events-bg: rgba(254,242,241,1);
   --staff-bg: rgba(255, 255, 255, 1);
   --classes-bg: rgba(254, 242, 241, 1);
   --performances-bg: rgba(243, 245, 248, 1);
@@ -59,6 +61,7 @@ svg {
 
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
 header {
@@ -103,7 +106,12 @@ nav menu {
 
 nav menu li {
   list-style-type: none;
+}
+
+nav menu li a {
+  display: grid;
   padding: 0.5em;
+  width: 100%;
 }
 
 nav input[type="checkbox"] {
@@ -156,11 +164,22 @@ a {
   text-decoration: underline;
 }
 
-.tagline {margin: 0; padding: 0;}
+.tagline {
+  margin: 0;
+  padding: 0 1em 1em 1em;
+  text-align: center;
+  font-size: .8em;
+}
 
-:where(p, h1, h2, h3, h4, h5, h6) {
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   padding: 1rem 1rem 0 1rem;
   text-align: center;
+  text-wrap: balance;
+}
+
+p {
+  padding: 1rem 1rem 0 1rem;
   text-wrap: balance;
 }
 
@@ -191,15 +210,16 @@ sub-section app-seal {
   }
 }
 
-section:nth-of-type(1) {
+/* ABOUT */
+section.intro {
   background-color: var(--about-bg);
 }
 
-section:nth-of-type(1) sub-section:nth-of-type(1) {
+section.intro sub-section:nth-of-type(1) {
   background: url("//static.showit.co/1200/ozPwSvkWTh2Ekce--IW0RQ/72835/paint-splotch-c-white.png")
     cover left center no-repeat;
 }
-section:nth-of-type(1) sub-section:nth-of-type(2) {
+section.intro sub-section:nth-of-type(2) {
   padding: 1rem;
   background: url("//static.showit.co/1200/EwEsUuxLSEiL3_xJumf6cQ/72835/lines.png")
       cover right bottom no-repeat,
