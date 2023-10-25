@@ -1,4 +1,4 @@
-## DEV NOTES : :
+# DEV NOTES : :
 Updated: `2023.10.21 12:13:57`
 By: [@D7460N](https://github.com/D7460N)
 
@@ -8,7 +8,7 @@ By: [@D7460N](https://github.com/D7460N)
 
 <br />
 
-### ARTICLES : :
+## ARTICLES : :
 
 [Definitive edition of "How to Favicon" in 2023](https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7) [ 2023.08.11 ]
 I thought adding a favicon to my website was a simple thing: create a file called favicon.ico, save it in the root directory, and add the code to the `<head>` section of the HTML file. I was wrong. ~ [Masa Kudamatsu](https://dev.to/masakudamatsu)
@@ -46,7 +46,7 @@ Whenever we build simple or complex layouts using CSS Grid, we’re usually posi
 
 <br />
 
-SOFTWARE : :
+## 3RD PARTY DEPENDENCIES : :
 
 [Swiper - The Most Modern Mobile Touch Slider](https://swiperjs.com/) [ 2023.09.28 ]
 Swiper is the most modern free and open source mobile touch slider with hardware accelerated transitions and amazing native behavior. Use it on websites, web apps, and mobile native/hybrid apps.
@@ -63,35 +63,99 @@ Charts.css is an open source CSS framework for data visualization. No dependenci
 
 <br />
 
-CODE : :
+## CODE SNIPPETS : :
 
-[Essential CSS Breakpoints for Web Developers](https://twitter.com/csaba_kissi/status/1714168372785725623)
-➡️ Mobile: Up to 480px
-➡️ Extra small devices: 481px to 767px
-➡️ Small tablets: 768px to 991px
-➡️ Large tablets/laptops: 992px to 1199px
-➡️ Desktops: 1200px to 1919px
-➡️ Extra large screens: 1920px and up
-~ [Csaba Kissi](https://twitter.com/csaba_kissi) [ 2023.10.23 ]
+### RESPONSIVE BREAKPOINTS : :
 
-```
+[Essential CSS Breakpoints for Web Developers](https://twitter.com/csaba_kissi/status/1714168372785725623) ~ [Csaba Kissi](https://twitter.com/csaba_kissi) [ 2023.10.23 ]
 
-/* Mobile */
+TODO: Convert to modern `arrow` syntax
+
+```css
+/* Mobile: Up to 480px */
 @media (max-width: 480px) {/* styles */}
 
-/* Extra small devices */
+/* Extra small devices: 481px to 767px */
 @media (min-width: 481px) and (max-width: 767px) {/* styles */}
 
-/* Small tablets */
+/* Small tablets: 768px to 991px */
 @media (min-width: 768px) and (max-width: 991px) {/* styles */}
 
-/* Large tablets/laptops */
+/* Large tablets/laptops: 992px to 1199px */
 @media (min-width: 992px) and (max-width: 1199px) {/* styles */}
 
-/* Desktops */
+/* Desktops: 1200px to 1919px */
 @media (min-width: 1200px) and (max-width: 1919px) {/* styles */}
 
-/* Extra large screens */
+/* Extra large screens: 1920px and up */
 @media (min-width: 1920px) {/* styles */}
-
 ```
+
+<br />
+
+### FONT-STACKS : :
+
+[https://systemfontstack.com/](https://systemfontstack.com/)
+
+Basic system font stacks
+
+Sans-serif:
+
+```css
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+```
+
+Serif:
+
+```css
+body {
+  font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+```
+
+Mono:
+
+```css
+body {
+  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+}
+```
+
+<br />
+
+---
+
+<br />
+
+## DIAGRAMS : :
+
+### Mermaid diagrams
+
+[https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+
+Here is a simple flow chart:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+```
+
+<br />
+
+---
+
+<br />
+
+Three theme considerations:
+
+1. Avoid FOUC:<br />
+   1. Directly override default UA stylesheet to avoid FOUC.
+   2. Must use `color-scheme` in `:root{ }`
+2. Toggle theme
+   1. Regardless of current theme
+3. Not repeat styles
+   1. Use custom properties (variables)
