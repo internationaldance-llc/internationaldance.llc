@@ -12,9 +12,9 @@ The thriving Alexandria (soon to be Annandale) VA premier school of dance offers
 
 [http://international.dance](http://international.dance)<br />
 [contact@international.dance](mailto:“contact@international.dance?bcc=”dragon@dragontheory.com.com?subject=International%20Dance%20-%20”?body=To%20whom%20it%20may%20concern)<br />
-[Facebook](https://facebook.com/internationaldancellc) | [Pinterest](https://pinterest.com/internationaldancellc) | 
+[Facebook](https://facebook.com/internationaldancellc) | [Pinterest](https://pinterest.com/internationaldancellc) |
 [Instagram](https://instagram.com/internationaldancellc) | [Twitter/X](https://twitter.com/intdnc)<br /><br />
 [ Studio ]<br />
-[703.634.9834](tel:7036349834)<br />
-<address>6550-I Little River Turnpike<br />
+<a href="" aria-label="International Dance studio front office phone number is 7 0 3 6 3 4 9 8 3 4">703.634.9834</a>
+<address aria-label="Business headquarters address">6550-I Little River Turnpike<br />
 Alexandria, VA 22312</address>
