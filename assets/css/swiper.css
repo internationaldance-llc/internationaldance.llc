@@ -1,4 +1,4 @@
-img[src*="staff"]::before {
+/* img[src*="staff"]::before {
   background-image: url("https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/main/assets/images/ui/corner.svg");
   background-size: cover;
   background-position: center center;
@@ -23,14 +23,14 @@ swiper-slide {
   text-align: center;
   font-size: 18px;
   /* background: #fff; */
-  /* display: flex; */
-  justify-content: center;
+/* display: flex; */
+/*justify-content: center;
   align-items: center;
-}
+}*/
 
-swiper-slide img {
+/*swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */

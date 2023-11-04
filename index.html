@@ -34,8 +34,99 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/reset.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/layout.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" type="text/css" href="/assets/css/swiper.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css />
+  <link rel=" stylesheet" type="text/css" href="/assets/css/swiper.css" />
+
+  <style>
+    :root {
+      --swiper-pagination-color: rgba(255, 255, 255, 1);
+      --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 1);
+    }
+
+    .swiper {
+      user-select: none;
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100%;
+
+      height: 100%;
+
+      padding: 0px 0px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      box-sizing: border-box;
+
+      overflow: hidden;
+    }
+
+    .swiper-slide-bg-image {
+      position: absolute;
+      left: -10%;
+      top: -10%;
+      width: 120%;
+      height: 120%;
+      z-index: 0;
+    }
+
+    .swiper-slide-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .swiper-slide-3f38 {
+      background-color: rgba(51, 51, 51, 1);
+    }
+
+    .swiper-slide-bg-image-7cef {
+      object-fit: contain;
+    }
+
+    .swiper-slide-content-fc83 {
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: column;
+      padding: 48px 48px;
+      gap: 24px;
+    }
+
+    .swiper-slide-text-852c {
+      color: rgba(255, 255, 255, 1);
+      text-align: left;
+      font-size: 48px;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+
+    .swiper-slide-block-c5c2 {
+      display: flex;
+      box-sizing: border-box;
+      max-width: 640px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 0px;
+      padding: 0px 0px;
+    }
+
+    .swiper-slide-text-71b7 {
+      color: rgba(255, 255, 255, 1);
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
 
   <title>International Dance</title>
 </head>
@@ -158,13 +249,13 @@
 
         <h2>ABOUT</h2>
 
-        <p>Founded as the "School of International Dance" by <a href="">Christina Heimlich</a> in 1962, International Dance, LLC is now owned, operated, and directed by former Christina Heimlich student, <a href="">Elizabeth Hawkins</a>.</p>
+        <p>Founded in 1962 as the "School of International Dance by Prima Ballerina <a href="">Christina Heimlich</a>, International Dance has inspired dancers for generations.</p>
 
-        <p>Miss Elizabeth, Assistant Director <a href="">Rebecca Collier</a>, and our amazing instructors and staff continue the traditions and standards set forth by our founder.</p>
+        <p>Today, Miss Heimlich's legacy and mantel are taken to new heights with International Dance alumni, Shenandoah University Graduate, and current International Dance Owner, CEO, and Director <a href="">Elizabeth (Banks) Hawkins</a>.</p>
 
-        <p>International Dance accepts students from the <strong>age of 3 (potty trained) to adult</strong> and offers pre-ballet, ballet, adult ballet, tap, adult tap, jazz, lyrical, modern, pointe, creative movement, as well as international folk, and character dance.</p>
+        <p>Miss Elizabeth, instructors, and staff value and convey award-winning passion, discipline, and excellence with everything they do. Worthy investments that enrich student lives, families, and the community, through the art of dance.</p>
 
-        <p>International Dance instructors encourage development of motor coordination skills, balance, partnering, flexibility, strength, concentration, independence, creativity through imagination, poise, posture, rhythm, discipline, and well-being - all while having fun, and learning about music and dance.</p>
+        <p>The thriving Alexandria (<a href="#">soon to be Annandale</a>) VA premier school of dance offers <em>non-competitive</em> classical ballet, pointe, tap, jazz, modern, lyrical, folk, creative movement, and character dance instruction, year-round, for all ages.</p>
 
       </section>
 
@@ -219,79 +310,131 @@
         </figure> -->
 
 
-        <swiper-container class="mySwiper" pagination="true" space-between="30" loop="true" autoplay-delay="3500"
-          autoplay-disable-on-interaction="false" init="false">
-          <swiper-slide>
-            <span>Miss Elizabeth</span><br />
-            <span>Owner/Director/Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/e.jpg" alt="Miss Elizabeth" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Becca</span><br />
-            <span>Assistant Director/Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/b.jpg" alt="Miss Rebecca" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Misha</span><br />
-            <span>Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/m.jpg" alt="Miss Misha" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Sarah</span><br />
-            <span>Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/sara200x300.jpg" alt="Miss Sarah" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Natalie</span><br />
-            <span>Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/n.jpg" alt="Miss Natalie" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Victoria</span><br />
-            <span>Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/v.jpg" alt="Miss Victoria" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Sarah</span><br />
-            <span>Instructor</span>
-            <img src="https://dragontheory.com/id/assets/images/staff/s.jpg" alt="Miss Sarah" />
-          </swiper-slide>
-          <swiper-slide>
-            <span>Miss Therra</span><br />
-            <img src="https://dragontheory.com/id/assets/images/staff/t.jpg" alt="Miss Therra" />
-          </swiper-slide>
-        </swiper-container>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide-3f38">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/188a82ba634f7117f57d.jpg" />
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  Elizabeth Hawkins
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    International Dance alumni, Shenandoah University Graduate, and
+                    current International Dance Owner, CEO, and Director Elizabeth
+                    (Banks) Hawkins.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide swiper-slide-4737">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/f0057ec094e42b66da1d.jpg" />
+
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  Rebecca Collier
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    Assistant Director/Instructor
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide swiper-slide-3f38">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/7e1b71989e7bbdf57f2d.jpg" />
+
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  Misha Mlejova
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    Instructor
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide swiper-slide-3f38">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/4585d512728065ceb5b1.jpg" />
+
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  First Last Name
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    Instructor's Assistant
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide swiper-slide-3f38">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/70ad59e52771340cc4da.jpg" />
+
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  Sara Moorman
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    Front Office Manager / Enrolment Coordinator
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide swiper-slide-3f38">
+              <img class="swiper-slide-bg-image swiper-slide-bg-image-7cef" data-swiper-parallax="10%"
+                src="https://cdn.studio.swiperjs.com/monthly-maryellen-677/500bddefa5984b91179e.jpg" />
+
+              <div class="swiper-slide-content swiper-slide-content-fc83">
+                <div class="swiper-slide-text swiper-slide-text-852c" data-swiper-parallax="-100">
+                  First Last Name
+                </div>
+
+                <div class="swiper-slide-block swiper-slide-block-c5c2" data-swiper-parallax="-200">
+                  <div class="swiper-slide-text swiper-slide-text-71b7" data-swiper-parallax="-100">
+                    Position Title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <script>
-          const swiperEl = document.querySelector('swiper-container')
-          Object.assign(swiperEl, {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-              clickable: true,
-            },
-            breakpoints: {
-              400: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-              },
-              580: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-              },
-              760: {
-                slidesPerView: 4,
-                spaceBetween: 10,
-              },
-              920: {
-                slidesPerView: 5,
-                spaceBetween: 10,
-              },
-            },
+          var swiper = new Swiper(".swiper", {
+            observer: true,
+            observeParents: true,
+            watchSlidesProgress: true,
+            autoplay: { enabled: true },
+            grabCursor: true,
+            pagination: { el: ".swiper-pagination" },
+            parallax: { enabled: true },
+            speed: 600,
+            keyboard: { enabled: true },
+            rewind: true,
           });
-          swiperEl.initialize();
         </script>
 
       </section>
