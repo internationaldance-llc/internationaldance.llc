@@ -1,5 +1,5 @@
 # DEV NOTES : :
-Updated: `2023.10.21 12:13:57`
+Updated: `2023.11.03 10:21:57`
 By: [@D7460N](https://github.com/D7460N)
 
 <br />
@@ -179,4 +179,120 @@ Git-Graph
        commit
        commit
 ```
+
+<br />
+
+---
+
+<br />
+
+### Attribute Selectors
+
+[Attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) | [MDN](https://developer.mozilla.org/en-US/)
+
+The CSS attribute selector matches elements based on the element having a given attribute explicitly set, with options for defining an attribute value or substring value match.
+
+```css
+/* <a> elements with a title attribute */
+a[title] {color: purple;}
+
+/* <a> elements with an href matching "https://example.org" */
+a[href="https://example.org"] {color: green;}
+
+/* <a> elements with an href containing "example" */
+a[href*="example"] {font-size: 2em;}
+
+/* <a> elements with an href ending ".org", case-insensitive */
+a[href$=".org" i] {font-style: italic;}
+
+/* <a> elements whose class attribute contains the word "logo" */
+a[class~="logo"] {padding: 2px;}
+```
+
+## Syntax
+`[attr]` Represents elements with an attribute name of attr.
+
+`[attr=value]` Represents elements with an attribute name of attr whose value is exactly value.
+
+`[attr~=value]` Represents elements with an attribute name of attr whose value is a whitespace-separated list of words, one of which is exactly value.
+
+`[attr|=value]` Represents elements with an attribute name of attr whose value can be exactly value or can begin with value immediately followed by a hyphen, - (U+002D). It is often used for language subcode matches.
+
+`[attr^=value]` Represents elements with an attribute name of attr whose value is prefixed (preceded) by value.
+
+`[attr$=value]` Represents elements with an attribute name of attr whose value is suffixed (followed) by value.
+
+`[attr*=value]` Represents elements with an attribute name of attr whose value contains at least one occurrence of value within the string.
+
+`[attr operator value i]` Adding an i (or I) before the closing bracket causes the value to be compared case-insensitively (for characters within the ASCII range).
+
+`[attr operator value s]` `Experimental` Adding an s (or S) before the closing bracket causes the value to be compared case-sensitively (for characters within the ASCII range).
+
+<br />
+
+---
+
+<br />
+
+### Container Query Units and Fluid Typography
+
+[Fluid Typography](https://moderncss.dev/container-query-units-and-fluid-typography/) | [ModernCSS](https://moderncss.dev) | [Stephanie Eckles](https://front-end.social/@5t3ph)
+
+Fluid typography is the term for designing font-size rules that responsively adapt the size based on the amount of available inline space. Before the availability of container query units, techniques usually relied on the viewport width - vw - unit. The viewport method is excellent for main page type, such as article headlines. However, viewport-based fluid typography doesn't quite work for narrower spaces that flex independently of the viewport, such as a grid of cards.
+
+<br />
+
+---
+
+<br />
+
+### Container Queries
+
+[Container Queries](https://12daysofweb.dev/2021/container-queries/) | [12DaysOfWeb](https://12daysofweb.dev) | [Stephanie Eckles](https://front-end.social/@5t3ph)
+
+A key concept of container queries is that you must explicitly define which elements allow containment. Then you query against those containers which allow you to affect the properties of its children. This can be a bit of a gotcha, which we'll look at in action a bit later.
+
+At minimum for queries intended to be based on width, containment is defined by setting `container-type: inline-size` on a containing element.
+
+```css
+main {
+  container-type: inline-size;
+}
+```
+
+Optionally, you can also name your container with `container-name` which is useful if you have several layers of containment so that you can be more explicit about which queries affect elements.
+
+Both type and name can be defined using the shorthand `container` property, where the name is first and separated from the type by a forward slash.
+
+```css
+main {
+  container: main / inline-size;
+}
+```
+
+> If a container query is applied to an element that has no defined containing ancestor, the query will fail to apply. In other words - there is no default fallback containment on either the `body` or `html` elements.
+
+With our current `container-type` using `inline-size`, we'll write our first query. We'll also explicitly query against our named container of "main". If we left off the name, this query would be against the `h2`'s nearest ancestor with containment.
+
+```css
+@container main (width >= 40ch) {
+  h2 {
+    color: blue;
+  }
+}
+```
+
+> Oh, and what's that? A new syntax for the query definition using math comparisons? Oh yes! [This is an update](https://www.w3.org/TR/mediaqueries-5/#mq-range-context) that will be coming to "old fashioned" media queries against the viewport as well! Thanks, CSS Working group 🥰
+
+<br />
+
+---
+
+<br />
+
+### Modern CSS For Dynamic Component-Based Architecture
+
+[Dynamic Component-Based Architecture](https://moderncss.dev/modern-css-for-dynamic-component-based-architecture/) | [ModernCSS.dev](https://moderncss.dev) | [Stephanie Eckles](https://front-end.social/@5t3ph)
+
+The language of CSS has had an explosion of new features and improvements in the last few years. As a result, feature parity between browsers is at an all-time high, and [efforts are being made](https://webkit.org/blog/13706/interop-2023/) to continue releasing features consistently and synchronously among evergreen browsers.
 
