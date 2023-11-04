@@ -8,6 +8,8 @@ Miss Elizabeth, instructors, and staff value and invest award-winning passion, d
 
 The thriving Alexandria (soon to be Annandale) VA premier school of dance offers non-competitive classical ballet, tap, jazz, modern, lyrical, folk, and character dance instruction, year-round, for all ages.
 
+![International Dance](https://raw.githubusercontent.com/internationaldance-llc/internationaldance.llc/2023.10.17/assets/images/logos/logo.svg)
+
 [http://international.dance](http://international.dance)<br />
 [contact@international.dance](mailto:“contact@international.dance?bcc=”dragon@dragontheory.com.com?subject=International%20Dance%20-%20”?body=To%20whom%20it%20may%20concern)<br />
 [Facebook](https://facebook.com/internationaldancellc) | [Pinterest](https://pinterest.com/internationaldancellc) | 
