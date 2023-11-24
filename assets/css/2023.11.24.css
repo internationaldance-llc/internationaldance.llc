@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap");
+
+/*  RESET ----------------------------------
+*/
+@layer reset {
+  /*  Use a more-intuitive box-sizing model
+    https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after,
+  ::after,
+  ::before {
+    box-sizing: inherit;
+  }
+
+  /* Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* Add accessible line-height
+     Improve text rendering */
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-family: Calibri;
+
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Improve media defaults */
+  :where(img, picture, video, canvas, svg, iframe) {
+    display: block;
+    max-width: 100%;
+    isolation: isolate;
+    border: 0;
+  }
+
+  /* Remove built-in form typography styles */
+  :where(input, button, textarea, select) {
+    font: inherit;
+  }
+
+  /* Avoid text overflows */
+  :where(p, h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  /* Fluid typography */
+  :root {
+    --h1-base: 1.5rem;
+    --h2-base: 1.25rem;
+    --h3-base: 1.1rem;
+    --h4-base: 1.25rem;
+    --h5-base: 1.125rem;
+    --section-span: 1rem;
+  }
+
+  article {
+    container-type: inline-size;
+  }
+
+  h1 {
+    --font-size-base: var(--h1-base);
+  }
+  h2 {
+    --font-size-base: var(--h2-base);
+  }
+  h3 {
+    --font-size-base: var(--h3-base);
+  }
+  h4 {
+    --font-size-base: var(--h4-base);
+  }
+  h5 {
+    --font-size-base: var(--h5-base);
+  }
+  section span {
+    --font-size-base: var(--section-span);
+  }
+
+  @supports (font-size: 1cqi) {
+    :is(h1, h2, h3, h4, h5, section span) {
+      font-size: calc(var(--font-size-base) + var(--font-size-fluid, 2.5cqi));
+    }
+  }
+}
+
+/*  LAYOUT ----------------------------------
+*/
+app-container {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border: solid 1px red;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgba(210, 234, 229, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+header > * {
+  border: solid 1px green;
+  padding: 0.5rem 1rem;
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border: solid 1px red;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+nav > * {
+  border: solid 1px orange;
+  padding: 0.5rem 1rem;
+}
+
+menu {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+menu li a {
+  padding: 0.5rem 1rem;
+  border: solid green 1px;
+}
+
+/*     @media screen and (max-width: 45rem) {
+      menu {
+        display: grid;
+        position: absolute;
+        height: 100dvh;
+        width: 100dvw;
+        align-items: start;
+        background-color: rgba(255,255,255,0.5);
+      }
+
+      menu li a {
+        display: grid;
+        width: 100%;
+        text-align: center;
+      }
+    } */
+
+main {
+  display: grid;
+  overflow: auto;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: solid 1px blue;
+}
+
+@media screen and (max-width: 45rem) {
+  article {
+    grid-template-columns: 1fr;
+  }
+  article section:nth-of-type(1) {order: 2;}
+  article section:nth-of-type(1) svg,
+  article section:nth-of-type(1) span {display: none;}
+}
+
+article section {
+  display: grid;
+  align-content: start;
+}
+
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border: solid 1px red;
+}
+
+footer > * {
+  border: solid 1px orange;
+  padding: 0.5rem 1rem;
+}
+
+/*  MAIN/ARTICLES ----------------------
+*/
+article:nth-of-type(1) {
+  background-color: rgba(254, 242, 241, 1);
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+}
+
+article:nth-of-type(1) section {
+  display: grid;
+}
+
+article:nth-of-type(1) section:nth-of-type(1) span {
+  position: relative;
+  top: 65%;
+  left: 20%;
+  font-family: "Tangerine", cursive;
+  justify-self: start;
+}
+
+article:nth-of-type(1) section:nth-of-type(1) svg {
+  margin: 0 2rem 1rem 2rem;
+}
+
+article:nth-of-type(1) section:nth-of-type(1) p {
+  text-align: start;
+}
+
+article:nth-of-type(1) section:nth-of-type(2) {
+  align-content: center;
+}
+
+article:nth-of-type(1) section:nth-of-type(2) svg {
+  margin: 2rem;
+}
+
+article:nth-of-type(2) {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(3) {
+  background-color: rgba(254, 242, 241, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(4) {
+  background-color: rgba(243, 245, 248, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(5) {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(6) {
+  background-color: rgba(243, 245, 248, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(7) {
+  background-color: rgba(249, 202, 205, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(8) {
+  background-color: rgba(254, 242, 241, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(9) {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+article:nth-of-type(10) {
+  background-color: rgba(243, 245, 248, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+/*  TYPOGRAPHY ----------------------------------
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0.5rem 1rem;
+}
+
+p {
+  padding: 0.5rem 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+call-to-action {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/*  SCROLLBARS ----------------------------------
+*/
+*::-webkit-scrollbar {
+  display: block;
+  width: 1rem;
+}
+*::-webkit-scrollbar-button {
+  display: none;
+}
+*::-webkit-scrollbar-track {
+  background-color: rgba(48, 190, 255, 0);
+}
+*::-webkit-scrollbar-track-piece {
+  background-color: rgba(48, 190, 255, 0);
+}
+* {
+  --scrollbar-color: rgba(48, 190, 255, 0);
+}
+*:hover,
+*:focus,
+*:focus-within {
+  --scrollbar-color: rgba(
+    var(--bg-accent-color),
+    var(--bg-accent-opacity)
+  ) !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(48, 190, 255, 0);
+  border: 5px solid transparent;
+  border-radius: 1.5rem;
+  box-shadow: 0.25rem 0 0 0.25rem var(--scrollbar-color) inset;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-color);
+  border: 0 solid transparent;
+  box-shadow: none;
+}
+
+/* FIREFOX */
+/* Target elements, not :root{} */
+/* https://codeconvey.com/custom-scrollbar-css-for-all-browsers/ */
+panel-list {
+  scrollbar-color: rgba(48, 190, 255, 0) rgba(48, 190, 255, 0); /* Thumb and track color */
+  scrollbar-width: thin; /* Track width */
+}
+panel-list:hover {
+  scrollbar-color: rgba(48, 190, 255, 0.3) rgba(48, 190, 255, 0);
+}
